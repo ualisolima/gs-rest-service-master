@@ -8,8 +8,10 @@ public class Publisher {
 	
 	private String location;
 
+	
+	public Publisher() {}
+	
 	public Publisher(Integer id, String name, String location) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.location = location;

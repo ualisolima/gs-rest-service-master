@@ -12,8 +12,9 @@ public class Pub {
 	
 	private Integer publisherId;
 	
+	public Pub() {}
+	
 	public Pub(Integer id, String year, String title, Integer authorId, Integer publisherId) {
-		super();
 		this.id = id;
 		this.year = year;
 		this.title = title;
