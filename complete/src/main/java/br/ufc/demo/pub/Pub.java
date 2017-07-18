@@ -8,16 +8,19 @@ public class Pub {
 	
 	private String title;
 	
+	PubType type;
+	
 	private Integer authorId;
 	
 	private Integer publisherId;
 	
 	public Pub() {}
 	
-	public Pub(Integer id, String year, String title, Integer authorId, Integer publisherId) {
+	public Pub(Integer id, String year, String title, PubType type,Integer authorId, Integer publisherId) {
 		this.id = id;
 		this.year = year;
 		this.title = title;
+		this.type = type;
 		this.authorId = authorId;
 		this.publisherId = publisherId;
 	}
@@ -46,6 +49,14 @@ public class Pub {
 		this.title = title;
 	}
 	
+	public PubType getType() {
+		return type;
+	}
+
+	public void setType(PubType type) {
+		this.type = type;
+	}
+
 	public Integer getAuthorId() {
 		return authorId;
 	}

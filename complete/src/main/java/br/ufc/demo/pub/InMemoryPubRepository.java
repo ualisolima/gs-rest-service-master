@@ -15,9 +15,9 @@ public class InMemoryPubRepository implements PubRepository {
 	
 	static {
 		PUBS.addAll(Arrays.asList(
-				new Pub(1, "1995", "SVM",1,1),
-				new Pub(2, "2005", "IA",2,2),
-				new Pub(3,"2015","word2vec",3,3)
+				new Pub(1, "1995", "SVM",PubType.JOURNAL,1,1),
+				new Pub(2, "2005", "IA",PubType.MAGAZINE,2,2),
+				new Pub(3,"2015","word2vec",PubType.BOOK,3,3)
 		));
 	}
 
