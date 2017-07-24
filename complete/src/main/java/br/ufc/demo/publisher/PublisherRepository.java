@@ -1,15 +1,10 @@
 package br.ufc.demo.publisher;
 
-public interface PublisherRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin
+public interface PublisherRepository extends JpaRepository<Publisher, Integer>{
 	
-public Iterable<Publisher> findAll();
-	
-	public Publisher get(Integer id);
-	
-	public void save(Publisher publisher);
-	
-	public void delete(Integer id);
-	
-	public void update(Integer id, Publisher publisher);
 	
 }

@@ -1,7 +1,23 @@
 package br.ufc.demo.pub;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import br.ufc.demo.author.Author;
+import br.ufc.demo.publisher.Publisher;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@Entity
+@AllArgsConstructor
 public class Pub {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	private String year;
@@ -10,68 +26,13 @@ public class Pub {
 	
 	PubType type;
 	
-	private Integer authorId;
+	@ManyToOne
+	private Author author;
 	
-	private Integer publisherId;
+	@ManyToOne
+	private Publisher publisher;
 	
 	public Pub() {}
-	
-	public Pub(Integer id, String year, String title, PubType type,Integer authorId, Integer publisherId) {
-		this.id = id;
-		this.year = year;
-		this.title = title;
-		this.type = type;
-		this.authorId = authorId;
-		this.publisherId = publisherId;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	public PubType getType() {
-		return type;
-	}
-
-	public void setType(PubType type) {
-		this.type = type;
-	}
-
-	public Integer getAuthorId() {
-		return authorId;
-	}
-
-	public void setAuthorId(Integer authorId) {
-		this.authorId = authorId;
-	}
-	
-	public Integer getPublisherId() {
-		return publisherId;
-	}
-
-	public void setPublisherId(Integer publisherId) {
-		this.publisherId = publisherId;
-	}
 
 	@Override
 	public boolean equals(Object obj) {

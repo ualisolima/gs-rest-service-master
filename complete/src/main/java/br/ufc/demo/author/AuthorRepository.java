@@ -1,16 +1,10 @@
 package br.ufc.demo.author;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-public interface AuthorRepository {
+@CrossOrigin
+public interface AuthorRepository extends JpaRepository<Author, Integer>{
 
-	public Iterable<Author> findAll();
-	
-	public Author get(Integer id);
-	
-	public void save(Author author);
-	
-	public void delete(Integer id);
-	
-	public void update(Integer id, Author author);
 	
 }

@@ -1,42 +1,35 @@
 package br.ufc.demo.author;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.ufc.demo.pub.Pub;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@Entity
+@AllArgsConstructor
 public class Author {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String firstName;
 	private String lastName;
 	
-	public Author() {}
+	@OneToMany(mappedBy="author")
+	@JsonIgnore
+	private List<Pub> pubs;
 	
-	public Author(Integer id, String firstName, String lastName) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	public Author() {}
 
 	@Override
 	public boolean equals(Object obj) {

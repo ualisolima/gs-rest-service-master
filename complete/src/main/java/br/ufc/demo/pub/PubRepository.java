@@ -1,24 +1,14 @@
 package br.ufc.demo.pub;
 
-public interface PubRepository {
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+@CrossOrigin
+public interface PubRepository extends JpaRepository<Pub, Integer>{
 	
-	public Iterable<Pub> findAll();
-	
-	public Iterable<Pub> findAllAuthor(Integer authorId);
-	
-	public Iterable<Pub> findAllPublisher(Integer publisherId);
-	
-	public Pub get(Integer id);
-	
-	public Pub getPubAuthor(Integer pubId, Integer AuthorId);
-	
-	public Pub getPubPublisher(Integer pubId, Integer publisherId);
-	
-	public void save(Pub pub);
-	
-	public void delete(Integer id);
-	
-	public void update(Integer id, Pub pub);
-	
+	List<Pub> findByTitle(@Param("title") String title);
 	
 }
